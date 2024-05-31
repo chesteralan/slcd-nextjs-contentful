@@ -1,11 +1,11 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react';
 import Facebook from '@mui/icons-material/Facebook';
-import Instagram from '@mui/icons-material/Instagram';
 import LinkedIn from '@mui/icons-material/LinkedIn';
-import Twitter from '@mui/icons-material/Twitter';
 import { Theme, Container, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
+import LogoLight from 'public/logo-light.png';
 
 import { FooterFieldsFragment } from './__generated/ctf-footer.generated';
 
@@ -13,10 +13,8 @@ import {
   getLinkDisplayText,
   getLinkHrefPrefix,
 } from '@src/components/features/ctf-components/ctf-navigation/utils';
-import { LanguageSelector } from '@src/components/features/language-selector';
 import { Link } from '@src/components/shared/link';
 import { useContentfulContext } from '@src/contentful-context';
-import Logo from '@src/icons/logo-tagline.svg';
 import { CONTAINER_WIDTH } from '@src/theme';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -296,16 +294,13 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
               )}
             </nav>
           )}
-          <section className={classes.footerEndSection}>
-            <LanguageSelector />
-          </section>
         </footer>
       </Container>
       <Container maxWidth={false} className={classes.footerCorporateContainer}>
         <section className={classes.footerCorporate}>
           <div className={classes.corporateLogoMenu}>
             <div className={classes.corporateLogoContainer}>
-              <Logo className={classes.corporateLogo} />
+              <Image src={LogoLight} />
             </div>
 
             <section className={classes.copyrightAndLegal}>
@@ -329,16 +324,6 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
             <div className={classes.socialWrapper}>
               <Typography className={classes.socialTitle}>{t('socials.findUsOn')}</Typography>
               <div className={classes.social}>
-                {footerContent?.twitterLink && (
-                  <a
-                    href={footerContent.twitterLink}
-                    title={t('socials.twitter')}
-                    target="_blank"
-                    rel="nofollow noreferrer"
-                  >
-                    <Twitter />
-                  </a>
-                )}
                 {footerContent?.facebookLink && (
                   <a
                     href={footerContent.facebookLink}
@@ -357,16 +342,6 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
                     rel="nofollow noreferrer"
                   >
                     <LinkedIn />
-                  </a>
-                )}
-                {footerContent?.instagramLink && (
-                  <a
-                    href={footerContent.instagramLink}
-                    title={t('socials.instagram')}
-                    target="_blank"
-                    rel="nofollow noreferrer"
-                  >
-                    <Instagram />
                   </a>
                 )}
               </div>

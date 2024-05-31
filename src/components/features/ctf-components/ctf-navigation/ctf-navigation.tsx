@@ -54,12 +54,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     left: theme.spacing(10 * -1),
     listStyle: 'none',
     opacity: 0,
-    padding: theme.spacing(4, 10),
+    padding: theme.spacing(4, 6),
     pointerEvents: 'none',
     position: 'absolute',
     top: 'calc(100% - 2rem)',
     transform: 'translateY(20%)',
     transition: 'all 0.3s ease-in-out',
+    whiteSpace: 'nowrap',
   },
   submenuItem: {
     '&:hover, &:focus, &:focus-within': {
