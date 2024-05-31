@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   innerContainer: {
     marginLeft: 'auto',
     marginRight: 'auto',
-    maxWidth: '77rem',
+    maxWidth: '95rem',
   },
   featuresSection: {
     backgroundColor: '#FCFCFC',
