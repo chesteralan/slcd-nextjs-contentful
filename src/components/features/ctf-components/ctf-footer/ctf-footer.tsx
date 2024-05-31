@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     listStyle: 'none',
     margin: theme.spacing(0, 0, 8),
     padding: 0,
-    width: '17.2rem',
+    width: '25rem',
     [theme.breakpoints.up('md')]: {
       marginBottom: 0,
     },

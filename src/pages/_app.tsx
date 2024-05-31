@@ -86,7 +86,6 @@ const CustomApp = ({
                 <Hydrate state={dehydratedState}>
                   <Layout preview={previewActive}>
                     <Component {...pageProps} err={err} />
-                    <Settings />
                   </Layout>
                 </Hydrate>
               </ThemeProvider>
