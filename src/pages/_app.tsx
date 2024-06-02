@@ -7,13 +7,14 @@ import Head from 'next/head';
 import { appWithTranslation, SSRConfig } from 'next-i18next';
 import { useEffect, useState } from 'react';
 
-import { Settings } from '@src/components/features/settings';
 import { Layout } from '@src/components/templates/layout/layout';
 import { useContentfulContext, ContentfulContentProvider } from '@src/contentful-context';
 import { queryConfig } from '@src/lib/gql-client';
 import colorfulTheme from '@src/theme';
 import contentfulConfig from 'contentful.config';
 import nextI18nConfig from 'next-i18next.config';
+// eslint-disable-next-line import/no-unresolved
+import { Analytics } from '@vercel/analytics/react';
 
 const LivePreviewProvider = ({ children }) => {
   const { previewActive, locale } = useContentfulContext();
@@ -76,7 +77,6 @@ const CustomApp = ({
         <meta key="og:image:height" property="og:image:height" content="630" />
         <meta key="og:type" property="og:type" content="website" />
       </Head>
-
       <ContentfulContentProvider router={router}>
         <LivePreviewProvider>
           <QueryClientProvider client={queryClient}>
@@ -86,6 +86,7 @@ const CustomApp = ({
                 <Hydrate state={dehydratedState}>
                   <Layout preview={previewActive}>
                     <Component {...pageProps} err={err} />
+                    <Analytics />
                   </Layout>
                 </Hydrate>
               </ThemeProvider>
